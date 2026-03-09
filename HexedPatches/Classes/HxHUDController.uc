@@ -1,6 +1,8 @@
 class HxHUDController extends Interaction
     config(User);
 
+var localized string locForcingReplaceHUDs;
+
 struct HxHUDReplacement
 {
     var string HUDType;
@@ -107,7 +109,7 @@ function bool CheckConflictingPackages()
     {
         if (bReplaceHUDs)
         {
-            Warn("Forcing bReplaceHUDs to false because foxWSFix is enabled.");
+            Warn(locForcingReplaceHUDs);
             bReplaceHUDs = false;
         }
         return true;
@@ -186,4 +188,5 @@ defaultproperties
     HUDReplacements(7)=(HUDType="BonusPack.HudLMS",ReplaceWith=class'HxHUDLastManStanding')
     HUDReplacements(8)=(HUDType="BonusPack.HudMutant",ReplaceWith=class'HxHUDMutant')
     HUDReplacements(9)=(HUDType="Onslaught.ONSHUDOnslaught",ReplaceWith=class'HxHUDOnslaught')
+    locForcingReplaceHUDs="Forcing bReplaceHUDs to false because foxWSFix is enabled."
 }
